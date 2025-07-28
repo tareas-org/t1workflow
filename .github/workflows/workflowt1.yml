@@ -23,7 +23,7 @@ jobs:
                 apellido: 'Cruz'
                 edad: 3
     action-pr:
-        if: github.ref_name == 'develop'
+        if: github.event.pull_request.head.ref == 'develop'
         runs-on: ubuntu-latest
         steps: 
             - name: invocar-action-pr
