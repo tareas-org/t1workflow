@@ -10,7 +10,5 @@ jobs:
         steps:
             - name: step-01
               run: |
-                echo "Tarea 1 - Yexa"
-                echo "Hola :)"
-                echo "Otro"
+                echo "Tarea 1 - Yexalen"
             
