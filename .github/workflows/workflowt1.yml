@@ -1,7 +1,7 @@
 name: workflowt1
 on:
-    push:
-        branches: [main, develop, release]
+    pull_request:
+        branches: [main]
     workflow_dispatch:
 jobs:
     primer_job:
@@ -16,9 +16,19 @@ jobs:
         permissions: 
             contents: read
         steps: 
-            - name: invocaraction
+            - name: invocar-action
               uses: tareas-org/t1action@main
               with: 
                 nombre: 'Yexalen'
                 apellido: 'Cruz'
                 edad: 3
+    action-pr:
+        if: github.ref_name == 'develop'
+        runs-on: ubuntu-latest
+        steps: 
+            - name: invocar-action-pr
+              uses: tareas-org/t1action@main
+              with: 
+                nombre: ${{ vars.NOMBRE }}
+                apellido: ${{ vars.APELLIDO }}
+                edad: ${{ vars.EDAD }}
