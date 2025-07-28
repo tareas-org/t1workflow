@@ -10,5 +10,15 @@ jobs:
         steps:
             - name: step-01
               run: |
-                echo "Tarea 1 - Yexa"
-            
+                echo "Tarea 1 - Yexa, rama: ${{ github.ref_name }}"
+    prueba-action:
+        runs-on: ubuntu-latest
+        permissions: 
+            contents: read
+        steps: 
+            - name: invocaraction
+              uses: tareas-org/t1action@main
+              with: 
+                nombre: 'Yexalen'
+                apellido: 'Cruz'
+                edad: 3
