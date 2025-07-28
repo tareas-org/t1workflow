@@ -12,4 +12,5 @@ jobs:
               run: |
                 echo "Tarea 1 - Yexa"
                 echo "Hola :)"
+                echo "Otro"
             
