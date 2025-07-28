@@ -26,6 +26,8 @@ jobs:
     action-pr:
         if: github.head.ref == 'develop'
         runs-on: ubuntu-latest
+        permissions: 
+            contents: read
         steps: 
             - name: invocar-action-pr
               uses: tareas-org/t1action@main
