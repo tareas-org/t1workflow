@@ -2,6 +2,7 @@ name: workflowt1
 on:
     pull_request:
         branches: [main]
+        types: [opened, reopened, synchronize]
     workflow_dispatch:
 jobs:
     primer_job:
@@ -23,7 +24,7 @@ jobs:
                 apellido: 'Cruz'
                 edad: 3
     action-pr:
-        if: github.event.pull_request.head.ref == 'develop'
+        if: github.head.ref == 'develop'
         runs-on: ubuntu-latest
         steps: 
             - name: invocar-action-pr
