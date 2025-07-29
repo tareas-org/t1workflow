@@ -25,3 +25,10 @@ jobs:
                 nombre: ${{ vars.NOMBRE }}
                 apellido: ${{ vars.APELLIDO }}
                 edad: ${{ vars.EDAD }}
+
+    llamado_reusablewf:
+        uses: tareas-org/reusable-workflow/.github/workflows/rwf_t1.yml@main
+        with: 
+            nombre: 'Yex'
+            
+
