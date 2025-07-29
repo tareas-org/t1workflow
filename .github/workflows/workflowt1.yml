@@ -7,25 +7,6 @@ jobs:
     primer_job:
         runs-on: ubuntu-latest
         environment: ${{github.ref_name=='main'&&'prod'||github.ref_name=='develop'&&'dev'||github.ref_name=='release'&&'qa'}} 
-        steps:
-            - name: step-01
-              run: |
-                echo "Tarea 1 - Yexa, rama: ${{ github.ref_name }}"
-    prueba-action:
-        runs-on: ubuntu-latest
-        permissions: 
-            contents: read
-        steps: 
-            - name: invocar-action
-              uses: tareas-org/t1action@main
-              with: 
-                nombre: 'Yexalen'
-                apellido: 'Cruz'
-                edad: 3
-    action-pr:
-        runs-on: ubuntu-latest
-        permissions: 
-            contents: read
         steps: 
             - name: invocar-action-pr
               uses: tareas-org/t1action@main
