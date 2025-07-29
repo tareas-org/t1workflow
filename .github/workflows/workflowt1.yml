@@ -6,9 +6,11 @@ on:
 jobs:
     primer_job:
         runs-on: ubuntu-latest
+        permissions: 
+            contents: read
         environment: ${{github.ref_name=='main'&&'prod'||github.ref_name=='develop'&&'dev'||github.ref_name=='release'&&'qa'}} 
         steps: 
-            - name: action-PRT1
+            - name: invocar-action-pr1
               uses: tareas-org/t1action@main
               with: 
                 nombre: ${{ vars.NOMBRE }}
