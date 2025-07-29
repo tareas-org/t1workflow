@@ -1,14 +1,23 @@
 name: workflowt1
 on:
-    pull_request:
-        branches: [main]
+#   pull_request:
+#        branches: [main]
     workflow_dispatch:
+        inputs:
+            entorno:
+                required: true
+                default: 'dev'
+                type: choice 
+                options:
+                    - dev
+                    - prod
+                    - qa
 jobs:
     primer_job:
         runs-on: ubuntu-latest
         permissions: 
             contents: read
-        environment: ${{github.ref_name=='main'&&'prod'||github.ref_name=='develop'&&'dev'||github.ref_name=='release'&&'qa'}} 
+        environment: ${{ github.event.inputs.entorno || 'dev' }} 
         steps: 
             - name: invocar-action-pr1
               uses: tareas-org/t1action@main
