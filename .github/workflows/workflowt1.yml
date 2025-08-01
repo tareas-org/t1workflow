@@ -28,7 +28,7 @@ jobs:
                 edad: ${{ vars.EDAD }}
             - name: Mostrar output de la action
               run: |
-                    echo "La multiplcacion es: ${{ steps.action_t1.outputs.multiplcacion }}"
+                    echo "La multiplcacion es: ${{ steps.action_t1.outputs.multiplicacion }}"
 
     llamado_reusablewf:
         uses: tareas-org/reusable-workflow/.github/workflows/rwf_t1.yml@main
