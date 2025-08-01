@@ -18,6 +18,8 @@ jobs:
         permissions: 
             contents: read
         environment: ${{ github.event.inputs.entorno || 'dev' }} 
+        outputs:
+            nombreVecino: "Jesus"
         steps: 
             - name: invocar-action-pr1
               id: action_t1
@@ -35,4 +37,10 @@ jobs:
         with: 
             nombre: 'Yex'
             
-
+    jobOutputs:
+        runs-on: ubuntu-latest
+        needs: primer_job
+        steps:
+            - name: Mostrar output del job anterior
+              run: |
+                    echo "El nombre del vecino es: ${{ needs.primer_job.outputs.nombreVecino }}"
