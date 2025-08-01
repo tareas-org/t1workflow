@@ -20,11 +20,15 @@ jobs:
         environment: ${{ github.event.inputs.entorno || 'dev' }} 
         steps: 
             - name: invocar-action-pr1
+              id: action_t1
               uses: tareas-org/t1action@main
               with: 
                 nombre: ${{ vars.NOMBRE }}
                 apellido: ${{ vars.APELLIDO }}
                 edad: ${{ vars.EDAD }}
+            - name: Mostrar output de la action
+              run: |
+                    echo "La multiplcacion es: ${{ steps.action_t1.outputs.multiplcacion }}"
 
     llamado_reusablewf:
         uses: tareas-org/reusable-workflow/.github/workflows/rwf_t1.yml@main
